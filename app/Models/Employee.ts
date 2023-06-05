@@ -6,13 +6,13 @@ export default class Employee extends BaseModel {
   public id: number
 
   @column()
-  public userId: number
+  public user_id: number
 
   @column()
-  public firstName: string
+  public first_name: string
 
   @column()
-  public lastName: string
+  public last_name: string
 
   @column()
   public gender: string

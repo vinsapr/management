@@ -6,13 +6,13 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('userId').unique().notNullable()
-      table.string('firstName').notNullable()
-      table.string('lastName').notNullable()
+      table.string('user_id').unique().notNullable()
+      table.string('first_name').notNullable()
+      table.string('last_name').notNullable()
       table.string('gender').notNullable()
       table.string('division').notNullable()
       table.string('level').notNullable()
-      table.dateTime('hireDate', { useTz: true })
+      table.dateTime('hire_date', { useTz: true })
     })
   }
 

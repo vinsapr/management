@@ -8,6 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('username').unique().notNullable()
       table.string('email').unique().notNullable()
+      table.string('password').notNullable()
       table.dateTime('created_at', { useTz: true })
       table.dateTime('updated_at', { useTz: true })
     })
