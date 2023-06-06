@@ -4,14 +4,14 @@ import Employee from 'App/Models/Employee'
 export default class EmployeesController {
   public async index({}: HttpContextContract) {
     const employees = await Employee.query()
-    return employees
+    return { status: 'success', data: employees }
   }
 
   public async show({ params }: HttpContextContract) {
     try {
       const employee = await Employee.find(params.id)
       if (employee) {
-        return employee
+        return { status: 'success', data: employee }
       } else {
         return {
           status: 200,
@@ -31,14 +31,14 @@ export default class EmployeesController {
       employee.last_name = request.input('last_name')
       employee.gender = request.input('gender')
       employee.division = request.input('division')
-      employee.level = request.input('last_name')
+      employee.level = request.input('level')
 
       if (await employee.save()) {
-        return employee
+        return { status: 'success', data: employee }
       }
-      return // 422
+      return { status: 'failed', message: 'Please retry!' }
     }
-    return // 401
+    return { status: 'failed', message: 'Please retry!' }
   }
 
   public async store({ request }: HttpContextContract) {
@@ -50,10 +50,14 @@ export default class EmployeesController {
     employee.division = request.input('division')
     employee.level = request.input('level')
     await employee.save()
-    return employee
+    return { status: 'success', data: employee }
   }
 
-  public async destroy({ response }: HttpContextContract) {
-    return response.json({ message: 'Deleted successfully' })
+  public async destroy({ response, params }: HttpContextContract) {
+    await Employee.query().where('id', params.id).delete()
+    return response.json({
+      status: 'success',
+      message: `Data employee ${params.id} deleted successfully`,
+    })
   }
 }
