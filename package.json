@@ -8,7 +8,9 @@
     "start": "node server.js",
     "test": "node ace test",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "run-migration": "node ace migration:run",
+    "run-seed": "node ace db:seed"
   },
   "eslintConfig": {
     "extends": [

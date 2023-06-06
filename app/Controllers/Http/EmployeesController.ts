@@ -60,4 +60,16 @@ export default class EmployeesController {
       message: `Data employee ${params.id} deleted successfully`,
     })
   }
+
+  public async paginate({ request, response }) {
+    try {
+      let pagination = request.only(['page', 'limit'])
+      const page = parseInt(pagination.page, 5) || 1
+      const limit = parseInt(pagination.limit, 5) || 5
+      const employee = await Employee.query().paginate(page, limit)
+      return response.json(employee)
+    } catch (error) {
+      throw error
+    }
+  }
 }

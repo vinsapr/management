@@ -26,6 +26,7 @@ Route.group(() => {
 
   Route.group(() => {
     Route.get('employee', 'EmployeesController.index')
+    Route.get('employee/paginate', 'EmployeesController.paginate')
     Route.get('employee/:id', 'EmployeesController.show')
     Route.put('employee/:id', 'EmployeesController.update')
     Route.post('employee', 'EmployeesController.store')
