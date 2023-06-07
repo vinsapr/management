@@ -1,0 +1,21 @@
+/api/employee:
+  post:
+    tags:
+      - Employee
+    security:
+    - bearerAuth: []
+    parameters:
+      - name: Authorization
+        in:  header
+        required: true
+        schema:
+          properties:
+            email:
+              description: Your email address
+              type: string
+              example: admin@mail.com
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success

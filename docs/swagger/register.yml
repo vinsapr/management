@@ -1,0 +1,24 @@
+/api/register:
+  post:
+    tags:
+      - Authentication
+    security: []
+    parameters:
+      - name: credentials
+        in:  body
+        required: true
+        schema:
+          properties:
+            email:
+              description: Your email address
+              type: string
+              example: admin@mail.com
+            password:
+              description: Your password
+              type: string
+              example: admin
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success
