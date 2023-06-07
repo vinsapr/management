@@ -1,0 +1,41 @@
+/api/employee:
+  post:
+    tags:
+      - Employee
+    security:
+      - bearerAuth: []
+    parameters:
+      - name: data
+        in:  body
+        required: true
+        schema:
+          properties:
+            user_id:
+              description: ID User
+              type: number
+              example: 1
+            first_name:
+              description: First Name Employee
+              type: string
+              example: Lee
+            last_name:
+              description: Last Name Employee
+              type: string
+              example: Min Ho
+            gender:
+              description: Gender Employee
+              type: string
+              example: Male
+            division:
+              description: Division Employee
+              type: string
+              example: Public Relationship
+            level:
+              description: Level Employee
+              type: string
+              example: Manager
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Success

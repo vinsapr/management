@@ -1,4 +1,4 @@
-/api/employee:
+/api/employee/paginate?page=1:
   get:
     tags:
       - Employee

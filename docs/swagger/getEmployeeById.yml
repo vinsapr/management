@@ -1,0 +1,22 @@
+/api/employee/{id}:
+  get:
+    tags:
+      - Employee
+    security:
+      - bearerAuth: []
+    produces:
+      - application/json
+    parameters:
+      - name: id
+        in:  path
+        required: true
+        schema:
+          properties:
+            id:
+              description: Employee ID
+              type: number
+              example: 1
+    responses:
+      200:
+        description: Success
+        

@@ -44,6 +44,20 @@ Make sure you have installed all of the following prerequisites on your developm
     yarn run-seed
     ```
 
+## Swagger
+
+1. Make sure you already running the project include database migration
+2. open the server address that shown in the terminal when running by adding `/docs` in the browser
+    ```
+    Server address: http://127.0.0.1:3333/docs
+    ```
+3. Select Auth `Register` or `login` to get bearer token
+4. Copay the token and klik `Authorize` then copy the token into the input field by adding bearer in front of the token
+    ```
+    bearer NjI.cRQFr4VxXmDxrxO2K5vpK3naA0V2qj8qlM4vrc6o7bgm3dtu9trE_SSJoRvb
+    ```
+5. Now you can access data employee
+
 ## Built With
 
 - [Node](https://nodejs.org/en/) - Javascript Runtime Environtment
